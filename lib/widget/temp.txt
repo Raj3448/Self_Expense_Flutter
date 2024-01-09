@@ -1,0 +1,135 @@
+Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.pink,
+                          radius: 40,
+                          child: FittedBox(
+                            child: Padding(
+                              padding: EdgeInsets.all(10),
+                              child: Text(
+                                '₹' +
+                                    usertransaction[index]
+                                        .amount
+                                        .toStringAsFixed(2),
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          FittedBox(
+                              child: Text(
+                                usertransaction[index].title,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            DateFormat.yMMMEd()
+                                .format(usertransaction[index].date),
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 59, 58, 58),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.fromLTRB(80, 20, 20, 20),
+                            child: FittedBox(
+                              child: IconButton(
+                                onPressed: () =>
+                                    deleteTx(usertransaction[index].id),
+                                icon: Icon(Icons.delete),
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  ---------------------------------------------------------
+                  //transcationItem my code for card
+                  //previous code
+                  Card(
+      elevation: 10,
+      child: SingleChildScrollView(
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: CircleAvatar(
+                backgroundColor: Colors.pink,
+                radius: 40,
+                child: FittedBox(
+                  child: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      '₹' + usertransaction.amount.toStringAsFixed(2),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                FittedBox(
+                  child: Text(
+                    usertransaction.title,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  DateFormat.yMMMEd().format(usertransaction.date),
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 59, 58, 58),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.fromLTRB(80, 20, 10, 20),
+                  child: FittedBox(
+                    child: IconButton(
+                      onPressed: () => deleteTx(usertransaction.id),
+                      icon: const Icon(Icons.delete),
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
